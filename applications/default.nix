@@ -1,0 +1,30 @@
+{ pkgs, ... }:
+{
+  imports                               =
+  [
+    ./adhd.nix
+    ./gui/atom.nix
+    ./crypto.nix
+    ./development/default.nix
+    ./files.nix
+    ./funny.nix
+    ./gui/games.nix
+    ./git.nix
+    ./gnupg.nix
+    ./hardware.nix
+    ./htop.nix
+    ./libs.nix
+    ./mail/default.nix
+    ./nano/default.nix
+    ./network.nix
+    ./processes.nix
+    ./ranger/default.nix
+    ./spelling.nix
+    ./sway/default.nix
+    ./sync.nix
+    ./terminal.nix
+    ./termite/default.nix
+    ./zsh.nix
+    ./gui/default.nix
+  ];
+}

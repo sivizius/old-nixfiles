@@ -1,0 +1,7 @@
+*~
+*.save
+*.swp
+old/
+result/
+hosts/*/secrets/
+hidden/
