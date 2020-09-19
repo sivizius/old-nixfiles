@@ -1,6 +1,7 @@
 # bet (from hebrew בית: house) is usually installed on localhost.
 { config, pkgs, ... }:
 {
+  #inherit ../../modules/micro.nix true;
   imports
   = [
       #./backups.nix
@@ -11,6 +12,7 @@
 
       # Applciations
       ../../applications/default.nix
+      ../../applications/gui/default.nix
 
       # Common
       ../../common/boot.nix

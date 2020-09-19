@@ -1,8 +1,7 @@
 { pkgs, ... }:
 {
-  environment                           =
-  {
-    systemPackages                      =   with pkgs;
+  environment.systemPackages
+  = with pkgs;
     [
       cargo
       cargo-about
@@ -39,7 +38,6 @@
       rust-bindgen
       rust-cbindgen
       rustfmt
-      rustup
+      #rustup
     ];
-  };
 }

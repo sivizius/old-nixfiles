@@ -1,12 +1,9 @@
 { pkgs, ... }:
 {
-  environment
-  = {
-      systemPackages
-      = with pkgs;
-        [
-          openconnect
-          tightvnc
-        ];
-    };
+  environment.systemPackages
+  = with pkgs;
+    [
+      openconnect
+      tightvnc
+    ];
 }

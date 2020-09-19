@@ -3,8 +3,7 @@
   environment.systemPackages
   = with pkgs;
     [
-      playonlinux
-      qemu
-      wine
+      firefox-wayland
+      qutebrowser
     ];
 }

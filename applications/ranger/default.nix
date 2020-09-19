@@ -1,10 +1,4 @@
 { pkgs, ... }:
 {
-  environment                           =
-  {
-    systemPackages                      =   with pkgs;
-    [
-      ranger
-    ];
-  };
+  environment.systemPackages            =   [ pkgs.ranger ];
 }

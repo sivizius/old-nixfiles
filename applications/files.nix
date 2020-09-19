@@ -1,8 +1,7 @@
 { pkgs, ... }:
 {
-  environment                           =
-  {
-    systemPackages                      =   with pkgs;
+  environment.systemPackages
+  = with pkgs;
     [
       exa
       fdupes
@@ -14,5 +13,4 @@
       unzip
       zstd
     ];
-  };
 }

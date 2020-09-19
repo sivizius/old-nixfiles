@@ -1,21 +1,22 @@
 { pkgs, ... }:
 {
-  imports                               =
-  [
-    ./python.nix
-    ./rust.nix
-  ];
-  environment                           =
-  {
-    systemPackages                      =   with pkgs;
+  imports
+  = [
+      ./python.nix
+      ./rust.nix
+    ];
+  environment.systemPackages
+  = with pkgs;
     [
+      binutils
       clang
       glib
       glibc
       lua
-      micro
       nim
+      patchelf
+      pkg-config
+      stdenv
       swift
     ];
-  };
 }

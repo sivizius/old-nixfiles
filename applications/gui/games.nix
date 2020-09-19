@@ -1,13 +1,11 @@
 { pkgs, ... }:
 {
-  environment                           =
-  {
-    systemPackages                      =   with pkgs;
+  environment.systemPackages
+  = with pkgs;
     [
-      #jdk14                             # for minecraft
+      jdk14                             # for minecraft
       multimc
       sauerbraten
       xonotic
     ];
-  };
 }
