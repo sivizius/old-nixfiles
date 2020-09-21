@@ -5,7 +5,7 @@ in
   {
     home-manager.users."${config.self.userName}"
     = {
-        imports                         =   [ ../../modules/micro/default.nix ];
+        imports                         =   [ ../modules/micro/default.nix ];
         programs.micro
         = {
             enable                      =   true;
@@ -13,6 +13,7 @@ in
             = {
                 "Alt-/"                 =   "lua:comment.comment";
                 "CtrlUnderscore"        =   "lua:comment.comment";
+                "Alt-t"                 =   "filemanager.toggle_tree";
               };
             colorschemes
             = {
@@ -20,6 +21,9 @@ in
                 = {
                     "default"           =   "green";
                   };
+              };
+            extraSettings
+            = {
               };
             plugins
             = [

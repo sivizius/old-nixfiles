@@ -17,7 +17,7 @@
       # Common
       ../../common/boot.nix
       ../../common/environment.nix
-      ../../common/fonts.nix
+      ../../common/fonts/default.nix
       ../../common/network.nix
       ../../common/printer.nix
       ../../common/pulseaudio.nix
@@ -64,6 +64,7 @@
       hostName                          =   "bet";
       emailAddress                      =   "sivizius@sivizius.eu";
       fullName                          =   "Sebastian Walz";
+      gpgKeyID                          =   "7BB421C684E821D8";
       scannerIP                         =   "192.168.178.28";
       secrets                           =   ./secrets;
       terminal                          =   "termite";

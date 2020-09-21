@@ -12,7 +12,7 @@
       ./hardware.nix
       ./htop.nix
       ./mail/default.nix
-      ./micro/default.nix
+      ./micro.nix
       ./nano/default.nix
       ./network.nix
       ./processes.nix

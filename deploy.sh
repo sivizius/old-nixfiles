@@ -14,13 +14,21 @@ else
   export NIX_SSHOPTS="-t -i ~/Keys/private/hosts.ssh"
 
   echo -en "Deploy \e[36m$HostConfig\e[0m on \e[35m$RemoteHost\e[0m…"
-  read
+  read # To make sure, the right configuration gets deployed on the right machine.
   cd "./hosts/$HostConfig/"
+  TimeStart="$(date +%s)"
   nixos-rebuild switch                                    \
     --use-remote-sudo                                     \
     --build-host      "localhost"                         \
     --target-host     "$RemoteHost"                       \
     -I                nixos-config="./configuration.nix"  \
     $@
-  echo -e "…\e[34mdone\e[0m"
+  TimeFinal="$(date +%s)"
+  Duration=$((TimeFinal-TimeStart))
+  Duration=$(date +"%H:%M:%S" -ud "@$Duration")
+  #Days=$((Duration/60/60/24))
+  #Hours=$((Duration/60/60%24))
+  #Minutes=$((Duration/60%60))
+  #Seconds=$((Duration%60))
+  echo -e "…\e[34mdone\e[0m ($Duration)"
 fi
