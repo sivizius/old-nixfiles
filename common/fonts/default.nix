@@ -13,9 +13,18 @@
           roboto
           roboto-mono
           roboto-slab
-          ttf_bitstream_vera
+          unifont
         ];
-      fontconfig.localConf
-      = lib.fileContents ./fontconfig.xml;
+      fontconfig
+      = {
+          localConf                     =   lib.fileContents ./fontconfig.xml;
+          defaultFonts
+          = {
+              emoji                     =   [ "Noto Color Emoji"  ];
+              serif                     =   [ "Dejavu Serif"      ];
+              sansSerif                 =   [ "Roboto Condensed"  ];
+              monospace                 =   [ "Roboto Mono"       ];
+            };
+        };
     };
 }

@@ -60,6 +60,7 @@ in
             swaybg
             swayidle
             waybar
+            wdisplays
             wev
             wl-clipboard
             (

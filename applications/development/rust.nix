@@ -13,8 +13,10 @@
       cargo-deps
       cargo-edit
       cargo-expand
+      cargo-embed
       cargo-flamegraph
-      #cargo-fuzz
+      cargo-flash
+      cargo-fuzz
       cargo-geiger
       cargo-generate
       cargo-graph

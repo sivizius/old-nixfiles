@@ -3,8 +3,6 @@ let
   cfg = config.programs.micro;
   dir = ".config/micro";
 in {
-  meta.maintainers = [ maintainers.sivizius ];
-
   ###### interface
   options = {
     programs.micro = {

@@ -15,7 +15,11 @@
           oh-my-zsh
           = {
               enable                    =   true;
-              plugins                   =   [ "git" ];
+              plugins
+              = [
+                  "git"
+                  "pass"
+                ];
               theme                     =   "candy";
             };
           shellAliases                  =   config.environment.shellAliases;

@@ -13,7 +13,8 @@ in
             = {
                 "Alt-/"                 =   "lua:comment.comment";
                 "CtrlUnderscore"        =   "lua:comment.comment";
-                "Alt-t"                 =   "filemanager.toggle_tree";
+                "Alt-w"                 =   "PreviousSplit";
+                "Alt-t"                 =   "command:tree";
               };
             colorschemes
             = {
@@ -41,7 +42,7 @@ in
                 colorcolumn             =   128;
                 colorscheme             =   "default";
                 diffgutter              =   true;
-                divchars                =   "|–";
+                divchars                =   "│─";
                 ignorecase              =   true;
                 mkparents               =   true;
                 mouse                   =   false;
@@ -51,7 +52,7 @@ in
                 saveundo                =   true;
                 scrollbar               =   false;
                 scrollmargin            =   4;
-                statusformatr           =   "$(bind:ToggleHelp): help";
+                statusformatr           =   "";
                 tabsize                 =   2;
                 tabstospaces            =   true;
                 xterm                   =   true;
