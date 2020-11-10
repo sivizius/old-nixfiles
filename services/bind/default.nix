@@ -16,9 +16,9 @@
     masters                             =   [ ];
     slaves                              =
     [
-      "2a0f:4ac0::1"                    # ns1.pbb.lc
-      "2a0f:4ac0::4"                    # ns2.pbb.lc
-      "2a0f:4ac0::5"                    # ns3.pbb.lc
+      "2a0f:4ac0::4"                    # ns1.petabyte.dev
+      "2a0f:4ac0::3"                    # ns2.petabyte.dev
+      "2a0f:4ac0:0:1::1"                # ns3.petabyte.dev
     ];
   in
   {
