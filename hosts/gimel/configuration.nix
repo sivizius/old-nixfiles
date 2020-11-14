@@ -8,11 +8,11 @@
 
     # Applications
     ../../applications/files.nix
-    ../../applications/nano/default.nix
+    ../../applications/nano
     ../../applications/git.nix
     ../../applications/htop.nix
     ../../applications/processes.nix
-    ../../applications/ranger/default.nix
+    ../../applications/ranger
     ../../applications/sync.nix
     ../../applications/terminal.nix
     ../../applications/zsh.nix

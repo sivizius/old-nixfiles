@@ -14,7 +14,7 @@
               ./clipboard.patch
             ];
           }
-        )
+        )*/
       )
     ];
   };

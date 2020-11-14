@@ -20,6 +20,7 @@
   environment.systemPackages
   = with pkgs;
     [
+      alacritty
       deluge
       spotify
       xournal

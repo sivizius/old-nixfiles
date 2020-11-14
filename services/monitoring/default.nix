@@ -39,7 +39,8 @@
 
     journald.extraConfig                =
     ''
-      MaxRetentionSec                   =   "3day"
+      MaxFileSec="6h"
+      MaxRetentionSec="3day"
     '';
 
     nginx                               =

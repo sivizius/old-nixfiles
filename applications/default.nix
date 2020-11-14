@@ -4,24 +4,24 @@
   = [
       ./adhd.nix
       ./crypto.nix
-      ./development/default.nix
+      ./development
       ./files.nix
       ./funny.nix
       ./git.nix
       ./gnupg.nix
       ./hardware.nix
       ./htop.nix
-      ./mail/default.nix
+      ./mail
       ./micro.nix
-      ./nano/default.nix
+      ./nano
       ./network.nix
       ./processes.nix
-      ./ranger/default.nix
+      ./ranger
       ./spelling.nix
-      ./sway/default.nix
+      ./sway
       ./sync.nix
       ./terminal.nix
-      ./termite/default.nix
+      #./termite
       ./zsh.nix
     ];
 }

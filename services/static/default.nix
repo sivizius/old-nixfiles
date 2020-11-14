@@ -13,7 +13,7 @@
           enableACME                    =   true;
           extraConfig                   =   config.services.nginx.virtualHosts."${config.self.domain}".extraConfig;
           forceSSL                      =   true;
-          locations."/".root            =   "/etc/static/";
+          locations."/".root            =   "/var/static/";
         };
       };
     };

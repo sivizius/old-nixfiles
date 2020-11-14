@@ -7,12 +7,12 @@
       enable                            =   true;
       virtualHosts                      =
       {
-        "static.${config.self.domain}"  =
+        "blog.${config.self.domain}"  =
         {
           enableACME                    =   true;
           extraConfig                   =   config.services.nginx.virtualHosts."${config.self.domain}".extraConfig;
           forceSSL                      =   true;
-          locations."/".root            =   "/var/static/";
+          locations."/".root            =   "/var/blog/";
         };
       };
     };

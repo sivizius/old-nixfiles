@@ -5,6 +5,6 @@
     [
       i2p
       tor
-      tor-browser-bundle-bin
+      #tor-browser-bundle-bin
     ];
 }

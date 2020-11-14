@@ -1,3 +1,4 @@
+{ config, home-manager, lib, pkgs, ... }:
 let
   # Keys Aliases
   mod                                   =   "Mod4";
@@ -8,11 +9,11 @@ let
 
   # Default Programs
   browser                               =   "qutebrowser";
-  htop                                  =   "termite -e htop";
+  htop                                  =   "${config.self.terminal} -e htop";
   menu                                  =   "wofi --show drun -I --style ${./wofi.css}";
   pass                                  =   "pass -c $(bash ${./passwords.sh} | wofi --show dmenu -I --style ${./wofi.css})";
   screenshooter                         =   "bash ${./screenshooter.sh}";
-  terminal                              =   "termite";
+  terminal                              =   "${config.self.terminal}";
   bar                                   =   "waybar -c ${./waybar/config.json} -s ${./waybar/style.css}";
   workspace3                            =   "sleep 2 && swaymsg \"workspace 3; layout tabbed\"";
 
@@ -46,7 +47,6 @@ let
   # Change Brightness by this amount
   brightnessDelta                       =   "5%";
 in
-  { config, home-manager, lib, pkgs, ... }:
   {
     environment
     = {
@@ -391,18 +391,18 @@ in
 
                       startup
                       = [
-                          { command = "atom";                             always  = false;  }
-                          { command = "dino";                             always  = false;  }
-                          { command = "Discord";                          always  = false;  }
-                          { command = "firefox";                          always  = false;  }
-                          #{ command = "mako     -c ~/.config/makorc";     always  = false;  }
-                          { command = "nheko";                            always  = false;  }
-                          { command = "telegram-desktop";                 always  = false;  }
-                          { command = "termite  -t neomutt  -e neomutt";  always  = false;  }
-                          { command = "termite  -t ranger   -e ranger";   always  = false;  }
-                          { command = "${lib.concatStringsSep "" idle}";  always  = true;  }
-                          { command = "${bar}";                           always  = false;  }
-                          { command = "${workspace3}";                    always  = true;   }
+                          { command = "atom";                                 always  = false;  }
+                          { command = "dino";                                 always  = false;  }
+                          { command = "Discord";                              always  = false;  }
+                          { command = "firefox";                              always  = false;  }
+                          ##{ command = "mako     -c ~/.config/makorc";         always  = false;  }
+                          { command = "nheko";                                always  = false;  }
+                          { command = "telegram-desktop";                     always  = false;  }
+                          { command = "${terminal}  -t neomutt  -e neomutt";  always  = false;  }
+                          { command = "${terminal}  -t ranger   -e ranger";   always  = false;  }
+                          { command = "${lib.concatStringsSep "" idle}";      always  = true;  }
+                          { command = "${bar}";                               always  = false;  }
+                          { command = "${workspace3}";                        always  = true;   }
                         ];
 
                       window

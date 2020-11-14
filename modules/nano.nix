@@ -1060,9 +1060,9 @@ in
       lib.lists.forEach cfg.bindings
       (
         this:
-        if this.function == null
-        then "bind ${this.key} \"${this.string}\" ${this.menu}"
-        else "bind ${this.key} ${this.function} ${this.menu}"
+          if this.function == null
+          then "bind ${this.key} \"${this.string}\" ${this.menu}"
+          else "bind ${this.key} ${this.function} ${this.menu}"
       )                                                                                                                     ++
       [
         ""
