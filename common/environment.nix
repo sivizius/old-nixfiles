@@ -50,7 +50,7 @@
                   '';
               man                       =   "echo 'Use enby […], Fight teh cistem!'";
               nixsh                     =   "/run/current-system/sw/bin/nix-shell --run zsh ";
-              l                         =   "/run/current-system/sw/bin/exa -lahG";
+              l                         =   "/run/current-system/sw/bin/exa -l@ah";
               l2                        =   "/run/current-system/sw/bin/exa -lahTL2";
               l3                        =   "/run/current-system/sw/bin/exa -lahTL3";
               l4                        =   "/run/current-system/sw/bin/exa -lahTL4";

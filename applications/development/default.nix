@@ -17,6 +17,6 @@
       patchelf
       pkg-config
       stdenv
-      swift
+      #swift
     ];
 }

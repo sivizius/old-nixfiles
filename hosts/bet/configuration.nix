@@ -63,6 +63,8 @@
   system.stateVersion                   =   "20.09";
 
   services.gnome3.at-spi2-core.enable   =   true;
+  hardware.bluetooth.enable             =   true;
+  hardware.pulseaudio.extraModules      =   [ pkgs.pulseaudio-modules-bt ];
 
   users.users."${config.self.userName}"
   =   {

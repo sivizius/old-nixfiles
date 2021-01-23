@@ -8,8 +8,8 @@ then
   lightsOff="$4"
   lock="$5"
   swayidle -w \
-    timeout "$timeOutDark" "$lightsOff" resume "$lightsOn" \
-    timeout "$timeOutLock" "$lock" resume "$lightsOn" \
+#    timeout "$timeOutDark" "$lightsOff" resume "$lightsOn" \
+    timeout "$timeOutLock" "$lightsOff; $lock" resume "$lightsOn" \
     before-sleep "$lock"
     after-sleep "$lightsOn"
     lock "$lock"

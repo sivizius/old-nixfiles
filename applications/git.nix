@@ -5,6 +5,10 @@
   home-manager.users."${config.self.userName}".programs.git
   = {
       enable                            =   true;
+      extraConfig
+      =   {
+            init.defaultBranch          =   "development";
+          };
       delta.enable                      =   true;
       signing
       = {

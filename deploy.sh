@@ -25,7 +25,7 @@ else
     $@
   TimeFinal="$(date +%s)"
   Duration=$((TimeFinal-TimeStart))
-  Duration=$(date +"%H:%M:%S" -ud "@$Duration")
+  Duration=$(date +"%d, %H:%M:%S" -ud "@$Duration")
   #Days=$((Duration/60/60/24))
   #Hours=$((Duration/60/60%24))
   #Minutes=$((Duration/60%60))

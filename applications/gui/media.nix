@@ -14,6 +14,7 @@
       pandoc
       pdfpc
       pdftk
+      poppler_utils
       qpdf
       texlive.combined.scheme-full
 

@@ -34,7 +34,7 @@
       cargo-xbuild
       chit
       clippy
-      gir-rs
+      #gir-rs
       rls
       rust-analyzer
       rust-bindgen
