@@ -8,23 +8,8 @@
         ./mail.nix
         ./network.nix
         ./ssh.nix
-
-        # Applciations
-        ../../applications
-        ../../applications/gui
-
-        # Common
-        ../../common/boot.nix
-        ../../common/environment.nix
-        ../../common/fonts
-        ../../common/network.nix
-        ../../common/printer.nix
-        ../../common/pulseaudio.nix
-        ../../common/scanner.nix
-        ../../common/system.nix
-        ../../common/trackpoint.nix
-        ../../common/tuc.nix
-        ../../common/users.nix
+        ../../common
+        ../../desktop
 
         # Modules
         ../../modules/nano.nix
@@ -32,6 +17,10 @@
 
         # Services
         ../../services/home-manager.nix
+
+        # Users
+        ../../users/root.nix
+        ../../users/sivizius.nix
       ];
 
   nixpkgs.config
@@ -58,22 +47,5 @@
         secrets                         =   ./secrets;
         terminal                        =   "alacritty";
         userName                        =   "sivizius";
-      };
-
-  system.stateVersion                   =   "20.09";
-
-  services.gnome3.at-spi2-core.enable   =   true;
-  hardware.bluetooth.enable             =   true;
-  hardware.pulseaudio.extraModules      =   [ pkgs.pulseaudio-modules-bt ];
-
-  users.users."${config.self.userName}"
-  =   {
-        extraGroups
-        =   [
-              "lpadmin"
-              "network"
-              "scanner"
-              "video"
-            ];
       };
 }

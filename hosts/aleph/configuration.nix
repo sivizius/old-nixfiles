@@ -5,26 +5,7 @@
   =   [
         ./hardware.nix
         ./network.nix
-
-        # Applications
-        ../../applications/files.nix
-        ../../applications/nano
-        ../../applications/git.nix
-        ../../applications/htop.nix
-        ../../applications/processes.nix
-        ../../applications/ranger
-        ../../applications/sync.nix
-        ../../applications/terminal.nix
-        ../../applications/zsh.nix
-
-        # Common
-        ../../common/acme.nix
-        ../../common/boot.nix
-        ../../common/environment.nix
-        ../../common/initrd.nix
-        ../../common/network.nix
-        ../../common/system.nix
-        ../../common/users.nix
+        ../../common
 
         # Modules
         ../../modules/nano.nix
@@ -33,12 +14,16 @@
         # Services
         ../../services/bind
         ../../services/blog.nix
-        ../../services/gitea.nix
+        ../../services/gitea
         ../../services/home-manager.nix
         ../../services/monitoring
         ../../services/nginx.nix
         ../../services/simple-nix-mail.nix
         ../../services/static
+
+        # Users
+        ../../users/root.nix
+        ../../users/sivizius.nix
       ];
 
   documentation.enable                  =   false;
@@ -67,6 +52,4 @@
         terminal                        =   "zsh";
         userName                        =   "sivizius";
       };
-
-  system.stateVersion                    =   "20.09";
 }

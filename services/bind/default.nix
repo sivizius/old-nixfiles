@@ -1,12 +1,9 @@
 { config, lib, ... }:
 {
-  networking
+  networking.firewall
   =   {
-        firewall
-        =   {
-              allowedTCPPorts           =   [ 53 ];
-              allowedUDPPorts           =   [ 53 ];
-            };
+        allowedTCPPorts                 =   [ 53 ];
+        allowedUDPPorts                 =   [ 53 ];
       };
 
   services
@@ -17,9 +14,9 @@
         masters                         =   [ ];
         slaves
         =   [
-              "2a0f:4ac0::4"            # ns1.petabyte.dev
-              "2a0f:4ac0::3"            # ns2.petabyte.dev
-              "2a0f:4ac0:0:1::1"        # ns3.petabyte.dev
+              "2a01:4f8:c0c:473f::1"    # ns1.petabyte.dev / ns1.pbb.lc
+              "2a0f:4ac0:0:1::1"        # ns2.petabyte.dev / ns2.pbb.lc
+              "2a0f:4ac0::3"            # ns3.petabyte.dev / ns3.pbb.lc
             ];
         hetznerIPv6Forwarders
         =   [
@@ -81,20 +78,18 @@
                     "::/64"
                   ];
               zones
-              =   [
-                    {
-                      name              =   config.self.domain;
-                      file              =   "${./zones}/${config.self.domain}";
-                      inherit master masters slaves;
-                    }
-                  ];
+              =   [{
+                    name                =   config.self.domain;
+                    file                =   "${./zones}/${config.self.domain}";
+                    inherit master masters slaves;
+                  }];
             };
 
         nginx.virtualHosts."${hostDomain}".locations."/metrics/bind"
         =   {
               extraConfig
               =   ''
-                    allow ${config.self.ipv6range}/64;
+                    allow ${config.self.ipv6range}:/64;
                     allow ${config.self.ipv4addr};
                     deny all;
                   '';
@@ -103,32 +98,22 @@
 
         prometheus
         =   {
-              exporters
+              exporters.bind
               =   {
-                    bind
-                    =   {
-                          enable        =   true;
-                          port          =   config.self.ports.exporters.bind;
-                        };
+                    enable              =   true;
+                    port                =   config.self.ports.exporters.bind;
                   };
               scrapeConfigs
-              =   [
-                    {
-                      job_name          =   "bind";
-                      metrics_path      =   "/metrics/bind";
-                      scheme            =   "https";
-                      scrape_interval   =   "30s";
-                      static_configs
-                      =   [
-                            {
-                              targets
-                              =   [
-                                    "${hostDomain}"
-                                  ];
-                            }
-                          ];
-                    }
-                  ];
+              =   [{
+                    job_name            =   "bind";
+                    metrics_path        =   "/metrics/bind";
+                    scheme              =   "https";
+                    scrape_interval     =   "30s";
+                    static_configs
+                    =   [{
+                          targets       =   [ "${hostDomain}" ];
+                        }];
+                  }];
             };
       };
 

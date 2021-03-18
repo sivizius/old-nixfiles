@@ -1,6 +1,9 @@
 { config, lib, pkgs, ... }:
 {
-  imports                               =   [ <nixpkgs/nixos/modules/profiles/qemu-guest.nix> ];
+  imports
+  =   [
+        <nixpkgs/nixos/modules/profiles/qemu-guest.nix>
+      ];
 
   boot
   =   {
@@ -16,11 +19,12 @@
                     "xhci_pci"
                   ];
               kernelModules             =   [ ];
-              /*luks.devices."encrypted"
+              luks.devices."encrypted"
               =   {
-                    device              =   "/dev/disk/by-label/encrypted";
-                  };*/
-              luks.devices."encrypted".device   =   "/dev/disk/by-uuid/09675dae-475b-47ff-8969-c5dee915b943";
+                    #device              =   "/dev/disk/by-label/encrypted";
+                    #device              =   "/dev/disk/by-uuid/09675dae-475b-47ff-8969-c5dee915b943";
+                    device              =   "/dev/sda2";
+                  };
             };
         kernelModules                   =   [ ];
         loader.grub

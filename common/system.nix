@@ -23,6 +23,6 @@
   =   {
         allowReboot                     =   false;
         dates                           =   "04:20";
-        enable                          =   true;
+        enable                          =   false;
       };
 }

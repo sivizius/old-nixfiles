@@ -1,3 +1,11 @@
+{
+  origin    = "sivizius.eu";
+  ttl       =   3600;
+  "@"
+  =
+}
+
+
 $ORIGIN   sivizius.eu.
 $TTL      3600
 @               A     95.217.131.201            ; IPv4
@@ -13,7 +21,7 @@ $TTL      3600
                 SOA   (
                         ns1.sivizius.eu.        ; primary dns-server
                         dns.sivizius.eu.        ; e-mail
-                        2021031200              ; serial: YYYYMMDDxx
+                        2020052400              ; serial: YYYYMMDDxx
                         1d                      ; refresh
                         2h                      ; retry
                         4w                      ; expire
@@ -31,13 +39,11 @@ _dmarc          TXT   "v=DMARC1;p=reject;pct=100;ruf=mailto:dmarc@sivizius.eu;ad
 _token._dnswl   TXT   "c960bmrmw5qp5gnrjlufyjbuw29art04"
 
 ; =#= services/applications =#=
-api             CNAME @
 blog            CNAME @
 git             CNAME @
 grafana         CNAME @
 mail            CNAME @
 prometheus      CNAME @
-static          CNAME @
 
 ; =#= hosts =#=
 aleph           CNAME @

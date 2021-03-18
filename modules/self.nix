@@ -71,11 +71,21 @@ in
 {
   options.self
   =   {
-        domain                          =   mkStringOption      "example.com"         "";
-        emailAddress                    =   mkStringOption      "example@example.com" "";
-        fullName                        =   mkStringOption      "John Doe"            "";
-        gpgKeyID                        =   mkStringOption      "3AA5C34371567BD2"    "";
+        # Deployment
         hostName                        =   mkStringOption      "example"             "";
+
+        # User
+        userName                        =   mkStringOption      "jdoe"                "The ";
+        passWord                        =   mkStringOption      "1337"                "Default Password of this user";
+        fullName                        =   mkStringOption      "John Doe"            "";
+        emailAddress                    =   mkStringOption      "example@example.com" "";
+        gpgKeyID                        =   mkStringOption      "3AA5C34371567BD2"    "";
+
+        # Applications
+        terminal                        =   mkStringOption      "xterm"               "";
+
+        # Networking
+        domain                          =   mkStringOption      "example.com"         "";
         ipv4addr                        =   mkStringOption      "1.2.3.4"             "";
         ipv6addr                        =   mkStringOption      "1337::1"             "";
         ipv6range                       =   mkStringOption      "1337::0/64"          "";
@@ -91,6 +101,8 @@ in
                   };
             };
         scannerIP                       =   mkStringOption      "1.3.3.7"             "";
+
+        # Secrets
         secrets
         =   lib.mkOption
             {
@@ -99,7 +111,5 @@ in
               example                   =   ./secrets;
               description               =   "";
             };
-        terminal                        =   mkStringOption    "xterm"                 "";
-        userName                        =   mkStringOption    "jdoe"                  "";
       };
 }

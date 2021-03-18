@@ -11,7 +11,7 @@ else
   HostConfig="$1"
   RemoteHost="$2"
   shift 2
-  export NIX_SSHOPTS="-t -i ~/Keys/private/hosts.ssh"
+  export NIX_SSHOPTS=" -t -i ~/Keys/private/hosts.ssh"
 
   echo -en "Deploy \e[36m$HostConfig\e[0m on \e[35m$RemoteHost\e[0m…"
   read # To make sure, the right configuration gets deployed on the right machine.

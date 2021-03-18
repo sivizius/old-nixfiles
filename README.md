@@ -5,11 +5,8 @@ Personal configuration-files by [\_sivizius](https://sivizius.eu) for [NixOS](ht
 * `deploy.sh`       – Bash-Script to deploy a host-configuration to a machine (IP/domain).
 * `LICENCE.md`      – The licence of this work, see Licence-section below.
 * `README.md`       – This document.
-* `applications/`   – Configuration for simple applications, usually just files adding packages to `environment.systemPackages`.
-  * `development/`  – Applications related to software-development like compilers and similar tools.
-  * `gui/`          – Applications that provide a graphical user interface and therefore need a display.
-  * `mail/`         – E-Mail user agents, etc.
-* `common/`         – Common configuration shared by multiple hosts, more than just adding applications.
+* `common/`         – Common configuration shared by multiple hosts.
+* `desktop/`        – Common configuration for desktop hosts.
 * `hosts/`          
   * Host-specific configuration, see Hosts-section below.
   * Each host-directory contains…
@@ -18,8 +15,8 @@ Personal configuration-files by [\_sivizius](https://sivizius.eu) for [NixOS](ht
     * …a `network.nix` and
     * …a hidden `secrets/`-directory for host-specific secrets.
 * `modules/`        – Nix-Modules: Meta-Configuration used by the configuration-files in the other directories.
-* `public/`         – Public Keys.
 * `services/`       – Services that run in the background, usually as systemd-units like webservers.
+* `users/`          – Users that might have access to one or the other system, including their public keys.
 
 ## Hosts
 * `aleph`
