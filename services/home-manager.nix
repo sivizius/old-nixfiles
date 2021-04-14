@@ -5,7 +5,7 @@
         "${builtins.fetchGit
         {
           url                           =   "https://github.com/nix-community/home-manager";
-          rev                           =   "472ca211cac604efdf621337067a237be9df389e";
+          rev                           =   "cc60c22c69e6967b732d02f072a9f1e30454e4f6";
         }}/nixos"
       ];
 }

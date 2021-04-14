@@ -1,6 +1,6 @@
 { config, home-manager, ... }:
 {
-  home-manager.users."${config.self.userName}".programs.htop
+  home-manager.users."root".programs.htop
   =   {
         accountGuestInCpuMeter          =   false;
         colorScheme                     =   0;

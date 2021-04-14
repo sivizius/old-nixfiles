@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   nix
   =   {
@@ -19,10 +19,16 @@
               "@wheel"
             ];
       };
+
   system.autoUpgrade
   =   {
         allowReboot                     =   false;
         dates                           =   "04:20";
         enable                          =   false;
+      };
+
+  users
+  =   {
+        defaultUserShell                =   pkgs.zsh;
       };
 }

@@ -11,7 +11,7 @@ let
         metrics
         =   {
               ENABLED                   =   true;
-              TOKEN                     =   builtins.readFile ( config.self.secrets + "/gitea.token"  );
+              TOKEN                     =   builtins.readFile ( config.self.host + "/secrets/gitea.token"  );
             };
         picture
         =   {
@@ -82,7 +82,7 @@ in
 
           prometheus.scrapeConfigs
           =   [{
-                bearer_token            =   builtins.readFile ( config.self.secrets + "/gitea.token"  );
+                bearer_token            =   builtins.readFile ( config.self.host + "/secrets/gitea.token"  );
                 job_name                =   "gitea";
                 metrics_path            =   "/metrics";
                 scheme                  =   "https";

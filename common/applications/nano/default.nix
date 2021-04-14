@@ -1,12 +1,13 @@
 { ... }:
 {
+  imports                               =   [ ../../../modules/nano.nix ];
   programs.nano2
   =   {
         enable                          =   true;
         atBlanks                        =   true;
         autoIndentation                 =   true;
         backup                          =   true;
-        backupDirectory                 =   "~/.nano/backups/";
+        backupDirectory                 =   "~/.cache/nano/backups/";
         constantShow                    =   true;
         historyLog                      =   true;
         include

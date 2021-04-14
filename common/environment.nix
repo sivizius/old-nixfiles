@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
   console
   =   {
@@ -10,15 +10,15 @@
   =   {
         shellAliases
         =   {
-              c                         =   "/run/current-system/sw/bin/clear";
+              c                         =   "${pkgs.ncurses}/bin/clear";
               dis
               =   ''
                     :(){
                       unset -f :
-                      /run/current-system/sw/bin/objdump -M intel $@ 2>&1 | /run/current-system/sw/bin/pygmentize -l objdump-nasm 2> /dev/zero | /run/current-system/sw/bin/less
+                      ${pkgs.binutils}/bin/objdump -M intel $@ 2>&1 | ${pkgs.python37Packages.pygments}/bin/pygmentize -l objdump-nasm 2> /dev/zero | ${pkgs.less}/bin/less
                     };:\
                   '';
-              enby                      =   "/run/current-system/sw/bin//man";
+              enby                      =   "${pkgs.man-db}/bin//man";
               frg
               =   ''
                     :(){
@@ -27,7 +27,7 @@
                       shift 1
                       echo $@
                       echo $regex
-                      /run/current-system/sw/bin/find $@ | /run/current-system/sw/bin/rg $regex
+                      ${pkgs.findutils}/bin/find $@ | ${pkgs.ripgrep}/bin/rg $regex
                     };:\
                   '';
               fuck
@@ -35,7 +35,7 @@
                     :(){
                       unset -f :
                       TF_PYTHONIOENCODING=$PYTHONIOENCODING;
-                      export TF_SHELL=zsh;
+                      export TF_SHELL=${pkgs.zsh}/bin/zsh;
                       export TF_ALIAS=fuck;
                       TF_SHELL_ALIASES=$(alias);
                       export TF_SHELL_ALIASES;
@@ -49,16 +49,16 @@
                     };:\
                   '';
               man                       =   "echo 'Use enby […], Fight teh cistem!'";
-              nixsh                     =   "/run/current-system/sw/bin/nix-shell --run zsh ";
-              l                         =   "/run/current-system/sw/bin/exa -l@ah";
-              l2                        =   "/run/current-system/sw/bin/exa -lahTL2";
-              l3                        =   "/run/current-system/sw/bin/exa -lahTL3";
-              l4                        =   "/run/current-system/sw/bin/exa -lahTL4";
-              l5                        =   "/run/current-system/sw/bin/exa -lahTL5";
-              lt                        =   "/run/current-system/sw/bin/exa -lahTL";
-              n                         =   "/run/current-system/sw/bin/nano";
-              please                    =   "sudo";
-              py                        =   "/run/current-system/sw/bin/python3";
+              nixsh                     =   "${pkgs.nix}/bin/nix-shell --run ${pkgs.zsh}/bin/zsh ";
+              l                         =   "${pkgs.exa}/bin/exa -l@ah";
+              l2                        =   "${pkgs.exa}/bin/exa -lahTL2";
+              l3                        =   "${pkgs.exa}/bin/exa -lahTL3";
+              l4                        =   "${pkgs.exa}/bin/exa -lahTL4";
+              l5                        =   "${pkgs.exa}/bin/exa -lahTL5";
+              lt                        =   "${pkgs.exa}/bin/exa -lahTL";
+              n                         =   "${pkgs.nano}/bin/nano";
+              please                    =   "${pkgs.sudo}/bin/sudo";
+              py                        =   "${pkgs.python3}/bin/python3";
               rainbow
               =   ''
                     for x in {0..8}
@@ -73,12 +73,11 @@
                       done
                     done
                   '';
-              term                      =   config.self.terminal;
-              use                       =   "/run/current-system/sw/bin/nix-shell --run zsh -p ";
+              use                       =   "${pkgs.nix}/bin/nix-shell --run ${pkgs.zsh}/bin/zsh -p ";
             };
         shellInit
         =   ''
-              mkdir -p ~/.nano/backups
+              mkdir -p ${config.programs.nano2.backupDirectory}
               export TERM=xterm
             '';
       };

@@ -2,7 +2,7 @@
 {
   environment.systemPackages            =   [ pkgs.gnupg  ];
 
-  home-manager.users."${config.self.userName}".services.gpg-agent
+  home-manager.users."root".services.gpg-agent
   =   {
         enable                          =   false;
         enableSshSupport                =   true;

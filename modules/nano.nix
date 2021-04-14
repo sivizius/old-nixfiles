@@ -1043,7 +1043,7 @@ in
       lib.optional cfg.view                       "set view"                                                                ++
       lib.optional (cfg.whiteSpace != "")         "set whitespace \"${cfg.whiteSpace}\""                                    ++
       lib.optional cfg.wordBounds                 "set wordbounds"                                                          ++
-      lib.optional (cfg.wordCharacters != "")     "set wordchars \"${cfg.wordCharacters}\""                                      ++
+      lib.optional (cfg.wordCharacters != "")     "set wordchars \"${cfg.wordCharacters}\""                                 ++
       lib.optional cfg.zap                        "set zap"                                                                 ++
       [
         ""

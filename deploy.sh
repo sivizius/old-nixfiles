@@ -17,11 +17,11 @@ else
   read # To make sure, the right configuration gets deployed on the right machine.
   cd "./hosts/$HostConfig/"
   TimeStart="$(date +%s)"
-  nixos-rebuild switch                                    \
-    --use-remote-sudo                                     \
-    --build-host      "localhost"                         \
-    --target-host     "$RemoteHost"                       \
-    -I                nixos-config="./configuration.nix"  \
+  nixos-rebuild switch                              \
+    --use-remote-sudo                               \
+    --build-host      "localhost"                   \
+    --target-host     "$RemoteHost"                 \
+    -I                nixos-config="./default.nix"  \
     $@
   TimeFinal="$(date +%s)"
   Duration=$((TimeFinal-TimeStart))

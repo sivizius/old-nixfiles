@@ -71,26 +71,18 @@ in
 {
   options.self
   =   {
+        desktop                         =   mkActivatableOption                       "Is this a desktop host?";
+
         # Deployment
-        hostName                        =   mkStringOption      "example"             "";
-
-        # User
-        userName                        =   mkStringOption      "jdoe"                "The ";
-        passWord                        =   mkStringOption      "1337"                "Default Password of this user";
-        fullName                        =   mkStringOption      "John Doe"            "";
-        emailAddress                    =   mkStringOption      "example@example.com" "";
-        gpgKeyID                        =   mkStringOption      "3AA5C34371567BD2"    "";
-
-        # Applications
-        terminal                        =   mkStringOption      "xterm"               "";
+        hostName                        =   mkStringOption      "example"             "Name of the host.";
 
         # Networking
-        domain                          =   mkStringOption      "example.com"         "";
-        ipv4addr                        =   mkStringOption      "1.2.3.4"             "";
-        ipv6addr                        =   mkStringOption      "1337::1"             "";
-        ipv6range                       =   mkStringOption      "1337::0/64"          "";
-        legacyTLS                       =   mkActivatableOption                       "";
-        minimal                         =   mkActivatableOption                       "";
+        domain                          =   mkStringOption      "example.com"         "Domain name of this host.";
+        ipv4addr                        =   mkStringOption      "1.2.3.4"             "Static legacy IP address of this host.";
+        ipv6addr                        =   mkStringOption      "1337::1"             "Static IP address of this host.";
+        ipv6range                       =   mkStringOption      "1337::0/64"          "Static IP range of this host.";
+        legacyTLS                       =   mkActivatableOption                       "If set, deprecated tls-versions, or if cleared, only version 1.3 will be accepted.";
+        minimal                         =   mkActivatableOption                       "Build a minmal NixOS.";
         ports
         =   lib.mkOption
             {
@@ -100,7 +92,6 @@ in
                     options             =   portOptions;
                   };
             };
-        scannerIP                       =   mkStringOption      "1.3.3.7"             "";
 
         # Secrets
         secrets
@@ -109,7 +100,29 @@ in
               type                      =   lib.types.path;
               default                   =   ./secret;
               example                   =   ./secrets;
-              description               =   "";
+              description               =   "Path do host-specific secrets. Deprecated without alternative *shrug*.";
+            };
+
+        users
+        =   lib.mkOption
+            {
+              type                      =   lib.types.listOf lib.types.str;
+              example                   =   [ "sivizius"  ];
+              description               =   "List of users on this system.";
             };
       };
+
+  /*config
+  =   rec
+      {
+        cfg = lib.foldl (left: right: left // right) {}
+        (
+          builtins.map
+          (
+            user:
+              import ( ../users + "/${user}" ) { inherit config pkgs; }
+          )
+          config.self.users
+        );
+      }.cfg;*/
 }

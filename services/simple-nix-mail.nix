@@ -16,7 +16,6 @@
   =   let
         accounts                        =   import  ( config.self.secrets + "/mail.nix" );
         domain                          =   config.self.domain;
-        userName                        =   config.self.userName;
       in
       {
         certificateScheme               =   3;

@@ -1,28 +1,21 @@
-{ config, home-manager, ... }:
+{ config, ... }:
 {
-  home-manager.users
+  home-manager.users."root".programs.zsh
   =   {
-        "${config.self.userName}".programs
+        autocd                          =   true;
+        enable                          =   true;
+        enableAutosuggestions           =   true;
+        enableCompletion                =   true;
+        oh-my-zsh
         =   {
-              zsh                       =   config.home-manager.users.root.programs.zsh;
-            };
-        root.programs.zsh
-        =   {
-              autocd                    =   true;
               enable                    =   true;
-              enableAutosuggestions     =   true;
-              enableCompletion          =   true;
-              oh-my-zsh
-              =   {
-                    enable              =   true;
-                    plugins
-                    =   [
-                          "git"
-                          "pass"
-                        ];
-                    theme               =   "candy";
-                  };
-              shellAliases              =   config.environment.shellAliases;
+              plugins
+              =   [
+                    "git"
+                    "pass"
+                  ];
+              theme                     =   "candy";
             };
+        shellAliases                    =   config.environment.shellAliases;
       };
 }

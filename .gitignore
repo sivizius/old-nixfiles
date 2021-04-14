@@ -3,6 +3,6 @@
 *.swp
 old/
 result/
-hosts/*/secrets/
+secrets/
 hidden/
 mnt/

@@ -13,7 +13,6 @@
         glib
         glibc
         lua
-        nim
         patchelf
         pkg-config
         stdenv

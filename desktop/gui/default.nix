@@ -14,12 +14,14 @@
         ./messenger.nix
         ./notifications.nix
         ./pentesting.nix
+        ./redshift.nix
+        ./sway
+        ./terminal.nix
       ];
 
   environment.systemPackages
   =   with pkgs;
       [
-        alacritty
         deluge
         spotify
         xournal
