@@ -12,5 +12,5 @@
         libappindicator-gtk3
         pango.dev
       ];
-  services.gnome3.at-spi2-core.enable   =   true;
+  services.gnome.at-spi2-core.enable    =   true;
 }

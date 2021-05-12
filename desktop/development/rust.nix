@@ -1,45 +1,56 @@
 { pkgs, ... }:
 {
   environment.systemPackages
-  =   with pkgs;
-      [
+  =   let
         cargo
-        cargo-about
-        cargo-asm
-        cargo-audit
-        cargo-bloat
-        cargo-crev
-        cargo-deny
-        cargo-deps
-        cargo-edit
-        cargo-expand
-        cargo-embed
-        cargo-flamegraph
-        cargo-flash
-        cargo-fuzz
-        cargo-geiger
-        cargo-generate
-        cargo-graph
-        cargo-inspect
-        cargo-license
-        cargo-make
-        cargo-outdated
-        cargo-release
-        cargo-sweep
-        cargo-tarpaulin
-        cargo-udeps
-        cargo-update
-        cargo-watch
-        cargo-web
-        cargo-xbuild
-        chit
-        clippy
-        #gir-rs
-        #rls
-        rust-analyzer
-        rust-bindgen
-        rust-cbindgen
-        rustfmt
-        rustup
-      ];
+        =   with pkgs;
+            [
+              cargo
+              cargo-about
+              cargo-asm
+              cargo-audit
+              cargo-bloat
+              cargo-crev
+              cargo-deny
+              cargo-deps
+              cargo-edit
+              cargo-embed
+              cargo-expand
+              cargo-flamegraph
+              cargo-flash
+              cargo-fund
+              cargo-fuzz
+              cargo-geiger
+              cargo-generate
+              cargo-graph
+              cargo-inspect
+              cargo-license
+              cargo-make
+              cargo-outdated
+              cargo-release
+              cargo-sweep
+              cargo-sync-readme
+              cargo-tarpaulin
+              cargo-udeps
+              cargo-update
+              cargo-watch
+              cargo-web
+              cargo-whatfeatures
+              cargo-wipe
+              cargo-xbuild
+            ];
+      in
+        with pkgs;
+        [
+          chit
+          clippy
+          #gir-rs
+          #rls
+          rust-analyzer
+          rust-bindgen
+          rust-cbindgen
+          #rustc
+          rustfmt
+          #rustup
+        ];
 }

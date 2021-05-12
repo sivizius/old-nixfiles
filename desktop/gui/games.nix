@@ -3,7 +3,7 @@
   environment.systemPackages
   =   with pkgs;
       [
-        jdk15_headless                  # for minecraft
+        jdk16                           # for minecraft
         multimc
         #sauerbraten
         xonotic
